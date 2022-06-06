@@ -1,4 +1,4 @@
-const { tiktokdl, tiktokdlv2 } = require('@bochilteam/scraper')
+import { tiktokdl, tiktokdlv2 } from '@bochilteam/scraper'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (!args[0]) throw `Use example ${usedPrefix}${command} https://www.tiktok.com/@omagadsus/video/7025456384175017243`
     const { author: { nickname }, video, description } = await tiktokdl(args[0]).catch(async _ => await tiktokdlv2(args[0]))
@@ -14,4 +14,4 @@ handler.tags = ['downloader']
 
 handler.command = /^(tik(tok)?(dl)?)$/i
 
-module.exports = handler
+export default handler
